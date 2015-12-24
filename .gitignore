@@ -1,0 +1,14 @@
+dspace-services/target/
+dspace-api/target/
+dspace-jspui/target/
+dspace-lni/target/
+dspace-oai/target/
+dspace-rdf/target/
+dspace-rest/target/
+dspace/target/
+dspace-solr/target/
+dspace-sword/target/
+dspace-sword2/target/
+dspace-xmlui/target/
+dspace-xmlui-mirage2/target/
+target
