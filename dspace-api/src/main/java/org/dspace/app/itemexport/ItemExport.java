@@ -637,7 +637,7 @@ public class ItemExport
                 out.write(utf8, 0, utf8.length);
                 utf8 = ("<Language>"+dcv.language+"</Language>\n")
                         .getBytes("UTF-8");
-                out.write(utf8, 0, utf8.length);
+                out2.write(utf8, 0, utf8.length);
             }
             dcorevalues2 = i.getMetadata(schema, "identifier", Item.ANY,
                     Item.ANY);
@@ -651,7 +651,7 @@ public class ItemExport
                 }
                 utf8 = ("<Identifier><Quilfier>"+qualifier+"</Quilfier><Value>"+dcv.value+"</Value></Identifier>\n")
                         .getBytes("UTF-8");
-                out.write(utf8, 0, utf8.length);
+                out2.write(utf8, 0, utf8.length);
             }
             dcorevalues2 = i.getMetadata(schema, "relation", Item.ANY,
                     Item.ANY);
@@ -665,7 +665,7 @@ public class ItemExport
                 }
                 utf8 = ("<Relation><Quilfier>IsPartOf</Quilfier><Value>"+dcv.value+"</Value></Relation>\n")
                         .getBytes("UTF-8");
-                out.write(utf8, 0, utf8.length);
+                out2.write(utf8, 0, utf8.length);
             }
             dcorevalues2 = i.getMetadata(schema, "subject", Item.ANY,
                     Item.ANY);
@@ -679,7 +679,7 @@ public class ItemExport
                 }
                 utf8 = ("<Coverage><Quilfier>Spatial</Quilfier><Value>"+dcv.value+"</Value></Coverage>\n")
                         .getBytes("UTF-8");
-                out.write(utf8, 0, utf8.length);
+                out2.write(utf8, 0, utf8.length);
             }
             dcorevalues2 = i.getMetadata(schema, "identifier", "citation",
                     Item.ANY);
@@ -693,14 +693,15 @@ public class ItemExport
                 }
                 utf8 = ("<Citation><Quilfier>SPage</Quilfier><Value>"+dcv.value+"</Value></Citation>\n")
                         .getBytes("UTF-8");
-                out.write(utf8, 0, utf8.length);
+                out2.write(utf8, 0, utf8.length);
             }
             utf8 = ("</Records>\n")
                     .getBytes("UTF-8");
-            out.write(utf8, 0, utf8.length);
+            out2.write(utf8, 0, utf8.length);
             utf8 = ("</ExchangeXML>\n")
                     .getBytes("UTF-8");
-            out.write(utf8, 0, utf8.length);
+            out2.write(utf8, 0, utf8.length);
+            out2.close();
         }
         else
         {
