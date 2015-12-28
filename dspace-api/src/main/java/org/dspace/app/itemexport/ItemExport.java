@@ -697,10 +697,11 @@ public class ItemExport
             }
             utf8 = ("</Records>\n")
                     .getBytes("UTF-8");
-            out2.write(utf8, 0, utf8.length);
+            out.write(utf8, 0, utf8.length);
             utf8 = ("</ExchangeXML>\n")
                     .getBytes("UTF-8");
             out2.write(utf8, 0, utf8.length);
+
             out2.close();
         }
         else

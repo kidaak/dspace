@@ -45,6 +45,8 @@ import org.dspace.handle.HandleManager;
 import org.dspace.plugin.CollectionHomeProcessor;
 import org.dspace.plugin.CommunityHomeProcessor;
 import org.dspace.plugin.ItemHomeProcessor;
+import org.dspace.storage.rdbms.DatabaseManager;
+import org.dspace.storage.rdbms.TableRowIterator;
 import org.dspace.usage.UsageEvent;
 import org.dspace.utils.DSpace;
 import org.jdom.Element;
@@ -457,6 +459,8 @@ public class HandleServlet extends DSpaceServlet
         request.setAttribute("item", item);
         request.setAttribute("collections", collections);
         request.setAttribute("dspace.layout.head", headMetadata);
+        TableRowIterator tri = DatabaseManager.queryTable(context, "systems", "SELECT * FROM systems");
+        request.setAttribute("systems", tri);
         JSPManager.showJSP(request, response, "/display-item.jsp");
     }
     

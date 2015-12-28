@@ -31,14 +31,23 @@
 <%@ page import="org.dspace.eperson.EPerson, org.dspace.core.ConfigurationManager" %>
 <%@ page import="org.dspace.core.Utils" %>
 <%@ page import="org.dspace.storage.rdbms.TableRowIterator" %>
+<%@ page import="org.dspace.storage.rdbms.TableRow" %>
 
 <dspace:layout style="submission" titlekey="jsp.register.edit-profile.title" nocache="true">
-    Hello! Some shit here<br>
+    <table>
+    <colgroup><col width="130" /><col width="60%" /><col width="40%" /></colgroup>
+    <tr>
+        <th id="t1" class="oddRowEvenCol">Name</th><th id="t3" class="oddRowEvenCol">Path</th><th id="t4" class="oddRowEvenCol">Edit</th></tr>
     <%
-        TableRowIterator name = (TableRowIterator) request.getAttribute("systems"); %>
+        TableRowIterator name = (TableRowIterator) request.getAttribute("systems");
+        while(name.hasNext()){
+        TableRow row = name.next();
+        Integer i = row.getIntColumn("id");%>
+    <tr>
+    <th class="oddRowEvenCol"><%=row.getStringColumn("system_name") %></th><th class="oddRowEvenCol"><%=row.getStringColumn("folder_path") %></th><th class="oddRowEvenCol"><a href="systems?action=edit&id=<%=i%>">Редактировать</a></th></tr>
 
-    <b><%=name.next().getStringColumn("name") %></b>
-
+    <% } %>
+    </table>
 
 
 </dspace:layout>
